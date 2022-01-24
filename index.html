@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Code Quiz</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+  <header>
+    <button class ="btn" id = "highScores">View High Scores</button>
+    <h1 class="page-title">Code Quiz Challenge</h1>
+    <h2 id="timer"></h2>
+    <p>Try to answer the questions within the time limit. If not, the time will be penalized.</p>
+        <button class="btn" id="start-quiz" type="submit">Start Quiz</button>
+
+     
+  </header>
+
+  <main class="quiz" id="quiz-container" class ="hide">
+    <h1 id = "question-display"></h1>
+    <div id ="question-container" class="hide">
+    </div>
+    <div id = "answer-buttons" class = "hide">
+    <button class="btn" id="btn-1" type="submit">A1</button>
+    <button class="btn" id="btn-2" type="submit">A2</button>  
+    <button class="btn" id="btn-3" type="submit">A3</button>  
+    <button class="btn" id="btn-4" type="submit">A4</button>
+  <h2 id = "correctAnswer"></h2>
+
+  </div>
+
+  </main>
+
+  <div class="hide" id = "scores">
+    <h1 id="totalScore"></h1>
+    <form>
+    <input id = "enterName" type="text">
+    <button type = "submit" class = "btn" id=submitScores>Submit my name!</button>
+  </form>
+  </div>
+
+  <div class="hide" id ="highScoreslist">
+    <h1>Below is a list of the high scores!</h1>
+  </div>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
