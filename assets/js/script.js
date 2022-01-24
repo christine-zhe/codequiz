@@ -1,27 +1,32 @@
 var timerEl = document.getElementById('timer');
-var mainEl = document.getElementById('main');
+
+// containers 
 var startEl = document.getElementById('start-quiz');
 var quizEl = document.getElementById('quiz-container');
 var questionContainerEl = document.getElementById('question-container');
 var answerButtonsEl = document.getElementById('answer-buttons')
 var questionDisplay = document.getElementById('question-display')
 
+//buttons for element answers
 var button1 = document.getElementById('btn-1');
 var button2 = document.getElementById('btn-2');
 var button3 = document.getElementById('btn-3');
 var button4 = document.getElementById('btn-4');
 var correctAnswer = document.getElementById("correctAnswer");
+
+//starting values
 var index = 0;
 var initialScore = 0;
 var timeLeft = 75;
+
+//capturing the scores
 var totalScore = document.getElementById("totalScore");
 var highScoresEl = document.getElementById("highScores");
-
 var scoresEl = document.getElementById("scores");
-
 var submitScoresEl = document.getElementById('submitScores');
 var highScoreslistEl = document.getElementById('highScoreslist');
 
+//listing out all the questions
 var questions = [
   {
     question: "The condition in an if/else statement is enclosed with _____.",
@@ -49,6 +54,8 @@ var questions = [
     correct: "alerts"
   }
 ]
+
+//initial start for the function
 function startQuiz() {
   startEl.classList.add('hide')
   questionContainerEl.classList.remove('hide')
@@ -68,6 +75,8 @@ function renderQuestion() {
 
 
   questionDisplay.textContent = questionObject.question;
+
+  // adding the text into each of the buttons
   button1.textContent = questionObject.answers[0];
   button2.textContent = questionObject.answers[1];
   button3.textContent = questionObject.answers[2];
@@ -76,25 +85,30 @@ function renderQuestion() {
 
 function answerCorrect(correct) {
 
+  //if the questions are correct or not
+
   if (questions[index].correct === questions[index].answers[correct]) {
     initialScore = initialScore + 10;
-    correctAnswer.textContent = "Correct";
+    correctAnswer.textContent = "Correct!";
   }
 
   else {
+    //subtracting out the time if incorrect question
     timeLeft = timeLeft - 10;
     timeLeft.textContent = timeLeft;
     correctAnswer.textContent = "Wrong!"
   }
-  // to go to the next question
-  index++;
 
+  // to go to the next question
+  index= index + 1;
+
+  //checking if there's more to go
   if (index < questions.length) {
     renderQuestion();
   }
 
   else {
-    gameOver();
+    endQuiz();
   }
 
 }
@@ -132,12 +146,12 @@ function timer() {
   }, 1000);
 }
 
-function gameOver() {
-
+function endQuiz() {
+  //ending the quiz
   quizEl.classList.add('hide')
   answerButtonsEl.classList.add('hide')
   scoresEl.classList.remove('hide')
-
+  //describing the final scores.
   var finalScore = document.createElement("h1");
   finalScore.textContent = "Your final score is: " + initialScore;
   var saveInfo = document.createElement("h1");
@@ -192,10 +206,12 @@ function highScores() {
 }
 
 startEl.addEventListener("click", startQuiz);
+
 button1.addEventListener("click", option1);
 button2.addEventListener("click", option2);
 button3.addEventListener("click", option3);
 button4.addEventListener("click", option4);
+
 submitScoresEl.addEventListener("click", storeScores);
 highScoresEl.addEventListener("click", highScores);
 
