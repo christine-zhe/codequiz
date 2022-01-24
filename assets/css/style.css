@@ -2,14 +2,16 @@
     box-sizing: border-box;
   }
   
+  /* Variable colors for entire page */
   :root {
     --primary: hsl(0, 0%, 0%);
     --secondary: #3f003f;
     --tertiary: rgb(253, 253, 253);
     --lighter: rgb(179, 65, 255);
-    font-size: 62.5%;
+    font-size: 63%;
   }
   
+
   body {
      background: var(--tertiary);
     color: var(--grey);
@@ -24,7 +26,7 @@
     border-bottom: 5px solid var(--primary);
   }
   
-
+  /* font for pagraph */
   header p {
     margin: 3rem 0 3rem;
     font-size: 2rem;
@@ -38,6 +40,7 @@
     border-radius: 12px;
   }
   
+  /* button styles */
   .btn {
     color: var(--tertiary);
     display: inline-block;

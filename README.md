@@ -24,3 +24,4 @@ THEN I can save my initials and score
 <img src ="./assets/images/Screenshot.png">
 
 ## Link
+https://christine-zhe.github.io/codequiz/
